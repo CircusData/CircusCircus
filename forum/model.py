@@ -11,6 +11,9 @@ class Post(db.Model):
     title = db.Column(db.Text)
     content = db.Column(db.Text)
     comments = db.relationship("Comment", backref="post")
+    likes = db.relationship("Like", backref="post", cascade="all, delete-orphan")
+    dislikes = db.relationship("Dislike", backref="post", cascade="all, delete-orphan")
+    hearts = db.relationship("Heart", backref="post", cascade="all, delete-orphan")
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     subforum_id = db.Column(db.Integer, db.ForeignKey('subforum.id'))
     postdate = db.Column(db.DateTime)
@@ -57,6 +60,10 @@ class Comment(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     post_id = db.Column(db.Integer, db.ForeignKey("post.id"))
 
+    likes = db.relationship("Like", backref="post", cascade="all, delete-orphan")
+    dislikes = db.relationship("Dislike", backref="post", cascade="all, delete-orphan")
+    hearts = db.relationship("Heart", backref="post", cascade="all, delete-orphan")
+
     lastcheck = None
     savedresponce = None
 
@@ -86,6 +93,22 @@ class Comment(db.Model):
         else:
             self.savedresponce = "Just a moment ago!"
         return self.savedresponce
+    
+class Like(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.column(db.Integer, db.ForeignKey('user.id'))
+    post_id = db.column(db.Integer, db.ForeignKey('post.id'))
+
+class Dislike(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.column(db.Integer, db.ForeignKey('user.id'))
+    post_id = db.column(db.Integer, db.ForeignKey('post.id'))
+
+class Heart(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.column(db.Integer, db.ForeignKey('user.id'))
+    post_id = db.column(db.Integer, db.ForeignKey('post.id'))
+
 
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
