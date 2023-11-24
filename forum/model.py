@@ -52,6 +52,9 @@ class Post(db.Model):
             self.savedresponce = "Just a moment ago!"
 
         return self.savedresponce
+    
+    def get_comments(self):
+        return Comment.query.filter_by(post_id=self.id).order_by(Comment.postdate.desc()).all()
 
 class Comment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -93,6 +96,10 @@ class Comment(db.Model):
         else:
             self.savedresponce = "Just a moment ago!"
         return self.savedresponce
+    
+    def get_comments_for_post(post_id):
+        return Comment.query.filter_by(post_id=post_id.id).order_by(Comment.postdate.desc()).all()
+
     
 class Like(db.Model):
     id = db.Column(db.Integer, primary_key=True)
