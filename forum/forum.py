@@ -154,19 +154,21 @@ def action_post():
 @login_required
 @app.route('/action_comment', methods=['POST', 'GET'])
 def comment():
-
-    post_id = int(request.args.get("post"))
-    post = Post.query.filter(Post.id == post_id).first()
-    if not post:
-        return error("That post does not exist!")
-    content = request.form['content']
-    emoji = request.form[emoji]
-    postdate = datetime.datetime.now()
-    comment = Comment(content, postdate, emoji)
-    current_user.comments.append(comment)
-    post.comments.append(comment)
-    db.session.commit()
-    return redirect("/viewpost?post=" + str(post_id))
+    if request.method == 'POST':
+        post_id = int(request.args.get("post"))
+        post = Post.query.filter(Post.id == post_id).first()
+        if not post:
+            return error("That post does not exist!")
+        content = request.form['content']
+        emoji = request.form['emoji']
+        postdate = datetime.datetime.now()
+        comment = Comment(content, postdate, emoji)
+        current_user.comments.append(comment)
+        post.comments.append(comment)
+        db.session.commit()
+        return redirect("/viewpost?post=" + str(post_id))
+    else:
+        return render_template("error.html", message="Invalid request method")
 def init_site():
     admin = add_subforum("Forum", "Announcements, bug reports, and general discussion about the forum belongs here")
     add_subforum("Announcements", "View forum announcements here",admin)
