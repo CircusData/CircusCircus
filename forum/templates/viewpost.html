@@ -21,6 +21,10 @@
 <div class="addcomment" id="addcomment">
 	<form action="/action_comment?post={{ post.id }}" method="POST">
 		<textarea class="inputbox varwidth" rows="6" name="content"></textarea><br>
+
+		<label for="emoji">Emoji:</label>
+		<input class="inputbox" type="text" id="emoji" name="emoji" placeholder="Enter emoji code"><br>
+		
 		<input class="inputbox" style="margin-bottom: 1%;" type="submit" value="Comment">
 	</form>
 </div>
