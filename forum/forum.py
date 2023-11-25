@@ -160,8 +160,9 @@ def comment():
     if not post:
         return error("That post does not exist!")
     content = request.form['content']
+    emoji = request.form[emoji]
     postdate = datetime.datetime.now()
-    comment = Comment(content, postdate)
+    comment = Comment(content, postdate, emoji)
     current_user.comments.append(comment)
     post.comments.append(comment)
     db.session.commit()
