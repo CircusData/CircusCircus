@@ -145,10 +145,11 @@ def action_post():
         retry = True
     if retry:
         return render_template("createpost.html", subforum=subforum, errors=errors)
-    post = Post(title, content, datetime.datetime.now())
-    subforum.posts.append(post)
-    user.posts.append(post)
-    db.session.commit()
+    with current_app.app_context():
+        post = Post(title, content, datetime.datetime.now())
+        subforum.posts.append(post)
+        user.posts.append(post)
+        db.session.commit()
     return redirect("/viewpost?post=" + str(post.id))
 
 @login_required
@@ -162,10 +163,12 @@ def comment():
         content = request.form['content']
         emoji = request.form['emoji']
         postdate = datetime.datetime.now()
-        comment = Comment(content, postdate, emoji)
-        current_user.comments.append(comment)
-        post.comments.append(comment)
-        db.session.commit()
+
+        with current_app.app_context():
+            comment = Comment(content, postdate, emoji)
+            current_user.comments.append(comment)
+            post.comments.append(comment)
+            db.session.commit()
         return redirect("/viewpost?post=" + str(post_id))
     else:
         return render_template("error.html", message="Invalid request method")
@@ -176,7 +179,7 @@ def init_site():
     add_subforum("General Discussion", "Use this subforum to post anything you want")
     add_subforum("Other", "Discuss other things here")
 
-# # db.drop_all()
+# db.drop_all()
 db.create_all()
 if not Subforum.query.all():
     init_site()
