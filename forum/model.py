@@ -93,9 +93,11 @@ class Comment(db.Model):
     lastcheck = None
     savedresponce = None
 
-    def __init__(self, content, postdate):
+    def __init__(self, content, postdate, user_id,emoji=None):
         self.content = content
         self.postdate = postdate
+        self.user_id = user_id
+        self.emoji = emoji
 
     def get_time_string(self):
         # this only needs to be calculated every so often, not for every request
@@ -126,21 +128,21 @@ class Comment(db.Model):
 
 class Like(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.column(db.Integer, db.ForeignKey('user.id'))
-    post_id = db.column(db.Integer, db.ForeignKey('post.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    post_id = db.Column(db.Integer, db.ForeignKey('post.id'))
     comment_id = db.Column(db.Integer, db.ForeignKey('comment.id'))
 
 class Dislike(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.column(db.Integer, db.ForeignKey('user.id'))
-    post_id = db.column(db.Integer, db.ForeignKey('post.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    post_id = db.Column(db.Integer, db.ForeignKey('post.id'))
     comment_id = db.Column(db.Integer, db.ForeignKey('comment.id'))
 
 
 class Emoji(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.column(db.Integer, db.ForeignKey('user.id'))
-    post_id = db.column(db.Integer, db.ForeignKey('post.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    post_id = db.Column(db.Integer, db.ForeignKey('post.id'))
     comment_id = db.Column(db.Integer, db.ForeignKey('comment.id'))
     emoji = db.Column(db.String(250))
 
