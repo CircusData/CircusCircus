@@ -177,9 +177,9 @@ def init_site():
     add_subforum("Other", "Discuss other things here")
 
 # # db.drop_all()
-# db.create_all()
-# if not Subforum.query.all():
-#     init_site()
+db.create_all()
+if not Subforum.query.all():
+    init_site()
 
 if __name__ == "__main__":
     # login_manager = LoginManager()

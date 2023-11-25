@@ -86,12 +86,13 @@ class Comment(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     post_id = db.Column(db.Integer, db.ForeignKey("post.id"))
 
-    likes = db.relationship("Like", backref="post", cascade="all, delete-orphan")
-    dislikes = db.relationship("Dislike", backref="post", cascade="all, delete-orphan")
-    emoji = db.relationship("Emoji", backref="post", cascade="all, delete-orphan")
+    likes = db.relationship("Like", cascade="all, delete-orphan")
+    dislikes = db.relationship("Dislike", cascade="all, delete-orphan")
+    emoji = db.relationship("Emoji", cascade="all, delete-orphan")
 
     lastcheck = None
     savedresponce = None
+
 
     def __init__(self, content, postdate, user_id,emoji=None):
         self.content = content
