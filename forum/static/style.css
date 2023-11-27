@@ -19,8 +19,8 @@
 	padding: 0.5%;
 	margin-bottom: none;
 }
-.profileposts{
-border-bottom: dashed;
+.something{
+    font-size: 1px;
 }
 .footer{
 	border: 1px solid black;
@@ -28,17 +28,7 @@ border-bottom: dashed;
 	vertical-align: middle;
 	padding: 0.5%;
 	margin-bottom: none;
-}
-
-.profiletitle{
-	font-size: 15pt;
-	font-weight: bold;
-}
-.counttitle{
-    float: right;
-	margin-left: auto;
-	margin-right: 0;
-	text-align: right;
+	font-size: 1px;
 }
 .content{
 	margin-top: 0.5%;

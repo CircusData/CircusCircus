@@ -4,8 +4,6 @@ from flask_login.login_manager import LoginManager
 
 from forum.model import *
 from forum.user import *
-from forum.user_settings import *
-from forum.profiles import *
 from forum.utl import error, valid_title, valid_content
 
 
