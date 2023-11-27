@@ -1,5 +1,13 @@
+"""
+I don't import from flask_paginate import Pagination because its inherent method in sqlalchemy
+I don't comment out pagination within the functions because it works properly
+I don't have post.items being fed to the render template function, might need to swap that
+Compared to Dev 11/27
+"""
+
 import datetime
 
+# from flask_paginate import Pagination (from Dev branch)
 from flask import *
 import re
 from flask_login import UserMixin, current_user, login_manager, login_user, login_required, logout_user
@@ -12,6 +20,8 @@ from forum.utl import username_taken, email_taken, valid_username
 """ View own profile, changing settings available 
 Using pagination to show 5 posts at a time
 """
+
+
 @login_required
 @app.route('/user/<username>')
 def user_profile(username):

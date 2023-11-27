@@ -11,6 +11,13 @@
 		</div>
 		<div class="posttime">
 			{{ post.get_time_string() }}
+			<br>{{ post.Likes|length }}
+			<a href="/like-post/{{post.id}}"><i class="fa-regular fa-thumbs-up"></i></a>
+			<a href="/like-post/{{post.id}}"><i class="fa-regular fa-thumbs-down"></i></a>
+			<a class="fa-regular fa-heart"></a>
+			<a class="fa-regular fa-face-smile"></a>
+			<a class="fa-regular fa-face-sad-tear"></a>
+			<a class="fa-solid fa-hands-clapping"></a><br>
 		</div>
 	</div>
 	<div class="postcontent">

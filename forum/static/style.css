@@ -19,6 +19,13 @@
 	padding: 0.5%;
 	margin-bottom: none;
 }
+.footer{
+	border: 1px solid black;
+	overflow: hidden;
+	vertical-align: middle;
+	padding: 0.5%;
+	margin-bottom: none;
+}
 .profileposts{
 	overflow: hidden;
 	vertical-align: middle;
@@ -196,8 +203,6 @@
 	font-size: 11pt;
 	font-style: italic;
 }
-
-
 .addcomment{
 	display: none;
 	margin-right: auto;

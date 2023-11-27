@@ -1,3 +1,7 @@
+"""
+Matching merged Dev on 11/27
+"""
+
 from flask import *
 import re
 from flask_login import UserMixin, current_user, login_manager, login_user, login_required, logout_user
@@ -7,9 +11,11 @@ from forum.model import User
 from forum.utl import username_taken, email_taken, valid_username
 
 
-""" Change Settings View
+""" 
+Change Settings View
 Base view that shows the user settings that can be changed and their action buttons
 """
+
 @login_required
 @app.route('/user_settings')
 def user_settings():
