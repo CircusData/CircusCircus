@@ -1,5 +1,5 @@
 """
-Added the route for like to match Dev.  This is likely causing an issue, it redirects to subforum. (TBD??)
+Added the route for like to match Dev.  This is likely causing the issue on like button click.  (TBD??)
 Uncommented in-line db.create_all() and if not Subforum.query.all(): init_site() to match Dev (NOT WORKING)
 Put the db.create_all() and two following lines in "with app.app_context(): wrapper (WORKING SITE)
 Compared to Dev on 11/27

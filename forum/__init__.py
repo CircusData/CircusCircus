@@ -48,10 +48,7 @@ Template Comparison to Dev on 11/27
 createpost.html - matches
 footer.html - matches
 header.html - updated to match
-    PI1 - header opening is using a flask route command to try and call the static folder url without a static view existing
 layout.html - updated to mostly match (kept better spacing)
-    PI1 - double indent of all divs and most calls within page div, FIXED in my version
-    PI2 - added a javascript call in the head, no idea if its working or what it produces. 
 login.html - matches
 profile.html - matches
 send_message.html - matches
@@ -60,8 +57,8 @@ subforums.html - matches
 user_settings.html - matches
 viewmessage.html - matches
 viewpost.html - Leaving likes out of comments since not associated in Model. 
-    PI1 - Like buttons all crammed into posttime class, may be fine, but links aren't working
-    PI2 - Does same with comment except missing <br> formatting tag at end and no links to anything.
+    PI1 - Like buttons all crammed into posttime class, may be fine, but links aren't working so idk if that is related, just noting here.
+    PI2 - Does same with comment except missing <br> formatting tag at end and no links to anything yet.
 viewprofile.html - matches
 
 """

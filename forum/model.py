@@ -1,7 +1,7 @@
 """
-Added likes on line 20 for likes to match Dev.  This could be an issue.
-Added lines 69/70 for get comments for post function to match Dev.  This could be an issue.
-Added line 110 for likes to match Dev.  This could be an issue.
+Added likes on line 20 for likes to match Dev.
+Added lines 69/70 for get comments for post function to match Dev.
+Added line 110 for likes to match Dev.
 Added the Like model to match dev.  This is definitely broken, initializer has different attributes than model.
 Compared to Dev on 11/27
 """

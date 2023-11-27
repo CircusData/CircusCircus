@@ -1,7 +1,7 @@
 """
 I don't import from flask_paginate import Pagination because its inherent method in sqlalchemy
-I don't comment out pagination within the functions because it works properly
-I don't have post.items being fed to the render template function, might need to swap that
+I don't comment out pagination within the functions because it works properly now
+I don't have post.items being fed to the render template function, might need to swap that but it works without (could be legacy)
 Compared to Dev 11/27
 """
 
