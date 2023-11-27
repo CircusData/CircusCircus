@@ -7,7 +7,7 @@
 	margin-right: auto;
 	margin-top: 1%;
 	width: 80%;
-
+	
 	padding-left: 3%;
 	padding-right: 3%;
 
@@ -20,16 +20,12 @@
 	margin-bottom: none;
 }
 .profileposts{
-border-bottom: dashed;
-}
-.footer{
-	border: 1px solid black;
 	overflow: hidden;
 	vertical-align: middle;
 	padding: 0.5%;
 	margin-bottom: none;
+	border-bottom: dashed;
 }
-
 .profiletitle{
 	font-size: 15pt;
 	font-weight: bold;
@@ -40,6 +36,7 @@ border-bottom: dashed;
 	margin-right: 0;
 	text-align: right;
 }
+
 .content{
 	margin-top: 0.5%;
 }
@@ -199,6 +196,8 @@ border-bottom: dashed;
 	font-size: 11pt;
 	font-style: italic;
 }
+
+
 .addcomment{
 	display: none;
 	margin-right: auto;
@@ -208,4 +207,3 @@ border-bottom: dashed;
 .varwidth{
 	width: 50%;
 }
-
